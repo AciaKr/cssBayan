@@ -1,5 +1,6 @@
 html {
     font-size: 62.5%;
+    overflow-y: scroll;
     scroll-behavior: smooth;
     box-sizing: border-box;
 }
@@ -62,22 +63,26 @@ h1 {
 .img__wrapper {
     text-align: center;
     height: 0;
+    transition: height 1s ease-in-out;
 }
 
 .image {
     height: 0;
     width: 0;
+    opacity: 0;
     margin: 0;
-    transition: all .5s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 .input__item:checked + .label__wrapper + .img__wrapper {
     height: 100%;
+    transition: height 1s ease-in-out;
 }
 
 .input__item:checked + .label__wrapper + .img__wrapper .image {
     height: 100%;
     width: 100%;
+    opacity: 1;
     margin-top: 1.5rem;
 }
 
@@ -93,7 +98,6 @@ h1 {
     .input__item:checked + .label__wrapper + .img__wrapper .image {
         height: 80%;
         width: 80%;
-        margin-top: 1.5rem;
     }
 }
 
@@ -112,7 +116,9 @@ h1 {
     .input__item:checked + .label__wrapper + .img__wrapper .image {
         height: 60%;
         width: 60%;
+        opacity: 1;
         margin-top: 1rem;
+        transition: all 1s ease-in-out;
     }
 
     .accordion:hover .item__text{
@@ -121,23 +127,28 @@ h1 {
 
     .accordion__item:hover .img__wrapper {
         height: 100%;
+
     }
 
     .accordion:hover .item__icon {
         background-image: url("./asset/plus.svg");
         width: 2rem;
         height: 2rem;
-        transition: all .2s ease-in-out;
+        transform: rotate(0);
+        transition: transform .3s ease-in-out;
     }
 
     .accordion__item:hover .item__icon,
     .accordion__item:hover .input__item:checked + .label__wrapper .item__icon {
         transform: rotate(45deg);
+        transform-origin: center center;
     }
 
     .accordion__item:hover .img__wrapper .image {
         height: 60%;
         width: 60%;
+        opacity: 1;
         margin-top: 1rem;
+        transition: all 1s ease-in-out;
     }
 }
