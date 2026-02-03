@@ -1,0 +1,154 @@
+html {
+    font-size: 62.5%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+html,
+body,
+header,
+main,
+footer {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    font-family: "Paytone One", Verdana, sans-serif;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2rem;
+    color: #0059d9;
+}
+
+h1 {
+    font-family: "Paytone One", Verdana, sans-serif;
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 5rem;
+    color: #000000;
+    margin: 1rem 0;
+}
+
+.wrapper {
+    min-width: 50%;
+    margin: 5rem auto;
+    padding: 5% 10%;
+    background-color: #f6f6ec;
+    border-radius: 0.5rem;
+    border: 0.1rem solid #e8ebef;
+}
+
+.accordion__item {
+    padding: 2rem 0;
+    border-top: 0.1rem solid #e8ebef;
+}
+
+.input__item {
+    appearance: none;
+    display: none;
+}
+
+.label__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #0059d9;
+}
+
+.img__wrapper {
+    text-align: center;
+    height: 0;
+    transition: height 1s ease-in-out;
+}
+
+.image {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    margin: 0;
+    transition: all 1s ease-in-out;
+}
+
+.input__item:checked + .label__wrapper + .img__wrapper {
+    height: 100%;
+    transition: height 1s ease-in-out;
+}
+
+.input__item:checked + .label__wrapper + .img__wrapper .image {
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    margin-top: 1.5rem;
+}
+
+.input__item:checked + .label__wrapper .item__text {
+    color: #000000;
+}
+
+@media screen and (min-width: 321px) {
+    html {
+        font-size: 0.6em;
+    }
+
+    .input__item:checked + .label__wrapper + .img__wrapper .image {
+        height: 80%;
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 821px) {
+    html {
+        font-size: 0.7em;
+    }
+}
+
+@media (hover: hover) {
+    .accordion,
+    .label {
+        cursor: pointer;
+    }
+
+    .input__item:checked + .label__wrapper + .img__wrapper .image {
+        height: 60%;
+        width: 60%;
+        opacity: 1;
+        margin-top: 1rem;
+        transition: all 1s ease-in-out;
+    }
+
+    .accordion:hover .item__text{
+        color: #000000;
+    }
+
+    .accordion__item:hover .img__wrapper {
+        height: 100%;
+
+    }
+
+    .accordion:hover .item__icon {
+        background-image: url("./asset/plus.svg");
+        width: 2rem;
+        height: 2rem;
+        transform: rotate(0);
+        transition: transform .3s ease-in-out;
+    }
+
+    .accordion__item:hover .item__icon,
+    .accordion__item:hover .input__item:checked + .label__wrapper .item__icon {
+        transform: rotate(45deg);
+        transform-origin: center center;
+    }
+
+    .accordion__item:hover .img__wrapper .image {
+        height: 60%;
+        width: 60%;
+        opacity: 1;
+        margin-top: 1rem;
+        transition: all 1s ease-in-out;
+    }
+}
